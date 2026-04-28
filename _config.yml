@@ -1,3 +1,16 @@
-<h1>Ahoj</h1>
-<p>Toto je moja stránka</p>
-<button>Klikni</button>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>moonlp</title>
+</head>
+<body>
+
+    <h1>Ahoj, toto je moonlp.github.io</h1>
+    <p>Moja prvá stránka</p>
+
+    <button onclick="alert('Klikol si!')">
+        Klikni ma
+    </button>
+
+</body>
+</html>
