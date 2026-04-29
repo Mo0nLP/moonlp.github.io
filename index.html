@@ -8,14 +8,54 @@
     <h1>Seruste</h1>
     <h2>Pozor na duby možu ta zadupať</h2>
     
-    <img src="https://media.giphy.com/media/IB9foBA4PVkKA/giphy.gif" 
-         alt="Dancing Banana">
+<body style="background:black; color:white; overflow:hidden;">
 
-    <br><br>
+    <h1 style="text-align:center;">Peanut Butter Jelly Time 🍌</h1>
 
-    <button onclick="alert('PEANUT BUTTER JELLY TIME!!!')">
-        Klikni ma
+    <img id="banana"
+         src="https://media.giphy.com/media/IB9foBA4PVkKA/giphy.gif"
+         style="position:absolute; width:150px;">
+
+    <button onclick="playMusic()" 
+            style="position:fixed; bottom:20px; left:50%; transform:translateX(-50%);">
+        ▶️ Pusti hudbu
     </button>
+
+    <audio id="song">
+        <source src="https://www.myinstants.com/media/sounds/peanut-butter-jelly-time.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        function playMusic() {
+            document.getElementById("song").play();
+        }
+
+        let banana = document.getElementById("banana");
+
+        let x = 100;
+        let y = 100;
+        let dx = 2;
+        let dy = 2;
+
+        function moveBanana() {
+            let width = window.innerWidth - 150;
+            let height = window.innerHeight - 150;
+
+            x += dx;
+            y += dy;
+
+            if (x <= 0 || x >= width) dx *= -1;
+            if (y <= 0 || y >= height) dy *= -1;
+
+            banana.style.left = x + "px";
+            banana.style.top = y + "px";
+
+            requestAnimationFrame(moveBanana);
+        }
+
+        moveBanana();
+    </script>
+
     
 </body>
 </html>
