@@ -8,28 +8,16 @@
     <h1>Seruste</h1>
     <h2>Pozor na duby možu ta zadupať</h2>
     
-<body style="background:black; color:white; overflow:hidden;">
+</head>
+<body style="background:PURPLE; color:white; overflow:hidden;">
 
-    <h1 style="text-align:center;">Peanut Butter Jelly Time 🍌</h1>
+    <h1 style="text-align:center;">Peanut Butter Jelly Time </h1>
 
     <img id="banana"
          src="https://media.giphy.com/media/IB9foBA4PVkKA/giphy.gif"
          style="position:absolute; width:150px;">
 
-    <button onclick="playMusic()" 
-            style="position:fixed; bottom:20px; left:50%; transform:translateX(-50%);">
-        ▶️ Pusti hudbu
-    </button>
-
-    <audio id="song">
-        <source src="https://www.myinstants.com/media/sounds/peanut-butter-jelly-time.mp3" type="audio/mpeg">
-    </audio>
-
     <script>
-        function playMusic() {
-            document.getElementById("song").play();
-        }
-
         let banana = document.getElementById("banana");
 
         let x = 100;
@@ -55,7 +43,6 @@
 
         moveBanana();
     </script>
-
     
 </body>
 </html>
