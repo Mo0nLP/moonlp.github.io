@@ -6,6 +6,25 @@
 <body>
 
     <h1 style="text-align:center;">Seruste </h1>
+
+    
+    <h1>CS2 EXEC VIEWER</h1>
+
+    <textarea id="input" rows="10" cols="50" placeholder="Sem vlož svoj exec.cfg..."></textarea>
+    <br><br>
+
+    <button onclick="showExec()">EXEC</button>
+
+    <pre id="output"></pre>
+
+    <script>
+        function showExec() {
+            let exec = document.getElementById("input").value;
+            document.getElementById("output").innerText = exec;
+        }
+    </script>
+
+
     
 </head>
 <body style="background:Tail; color:white; overflow:hidden;">
