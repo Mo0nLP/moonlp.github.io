@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>moonlp</title>   
-    
+    <title>moonlp</title>
+
     <style>
         body {
             background: purple;
@@ -10,7 +10,7 @@
             margin: 0;
         }
 
-        h1 {
+        h1, h2 {
             text-align: center;
         }
 
@@ -31,12 +31,14 @@
         }
 
         @keyframes scroll {
-            0% {
-                transform: translateX(0%);
-            }
-            100% {
-                transform: translateX(-100%);
-            }
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        ul {
+            text-align: center;
+            list-style: none;
+            padding: 0;
         }
     </style>
 </head>
@@ -50,6 +52,16 @@
      Pozor na duby, môžu ťa zadupať • Myši nemajú demokratické voľby • MoonLP je ľudská bytosť ako ty • MoonLP ovláda túto stránku • Viac spi, hraj menej •
   </div>
 </div>
+
+<h2>💻 Moje PC specs</h2>
+
+<ul>
+  <li>Procesor: AMD Ryzen 3 5300G</li>
+  <li>Grafika: NVIDIA GeForce GTX 1650</li>
+  <li>RAM: 16GB</li>
+  <li>Disk: SSD aj HDD (500GB)</li>
+  <li>Monitor: HP Compaq LA2205wg</li>
+</ul>
 
 <img id="banana"
      src="https://media.giphy.com/media/IB9foBA4PVkKA/giphy.gif"
@@ -79,18 +91,6 @@
         requestAnimationFrame(moveBanana);
     }
 
-
-<h2> Moje PC specs</h2>
-
-    <ul>
-      <li>Procesor: Amd Ryzen 3 5300G  </li>
-      <li>Grafika: NVIDIA GeForce GTX 1650 </li>
-      <li>RAM: 16Gb </li>
-      <li>Disk: SSD aj HDD (500gb) </li>
-      <li>Monitor: Hp Compaq La2205wg </li>
-    </ul>
-
-    
     moveBanana();
 </script>
 
