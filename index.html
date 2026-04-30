@@ -2,82 +2,85 @@
 <html>
 <head>
     <title>moonlp</title>
+
+    <style>
+        body {
+            background: purple;
+            color: white;
+            margin: 0;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .ticker {
+            width: 100%;
+            overflow: hidden;
+            background: black;
+            padding: 10px 0;
+        }
+
+        .ticker-text {
+            display: inline-block;
+            white-space: nowrap;
+            padding-left: 100%;
+            animation: scroll 30s linear infinite;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-    <h1 style="text-align:center;">Seruste </h1>
-
-
-
-
-<style>
-.ticker {
-  width: 100%;
-  overflow: hidden
-}
-
-.ticker-text {
-  display: inline-block;
-  white-space: nowrap;
-  padding-left: 100%;
-  animation: scroll 30s linear infinite;
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-</style>
-</head>
-
-<body>
+<h1>Seruste</h1>
 
 <div class="ticker">
   <div class="ticker-text">
-     Pozor na duby, môžu ťa zadupať  •   Myši nemajú demokratické voľby    •   MoonLP je ludska bytosť ako ty    •    MoonLP ovláda tu to stránku   •   viac spi , hraj menej 
+     Pozor na duby, môžu ťa zadupať • Myši nemajú demokratické voľby • MoonLP je ľudská bytosť ako ty • MoonLP ovláda túto stránku • Viac spi, hraj menej •
   </div>
 </div>
 
+<img id="banana"
+     src="https://media.giphy.com/media/IB9foBA4PVkKA/giphy.gif"
+     style="position:absolute; width:150px;">
 
-    
-</head>
-<body style="background:Purple; color:white; overflow:hidden;">
+<script>
+    let banana = document.getElementById("banana");
 
+    let x = 100;
+    let y = 100;
+    let dx = 2;
+    let dy = 2;
 
-    <img id="banana"
-         src="https://media.giphy.com/media/IB9foBA4PVkKA/giphy.gif"
-         style="position:absolute; width:150px;">
+    function moveBanana() {
+        let width = window.innerWidth - 150;
+        let height = window.innerHeight - 150;
 
-    <script>
-        let banana = document.getElementById("banana");
+        x += dx;
+        y += dy;
 
-        let x = 100;
-        let y = 100;
-        let dx = 2;
-        let dy = 2;
+        if (x <= 0 || x >= width) dx *= -1;
+        if (y <= 0 || y >= height) dy *= -1;
 
-        function moveBanana() {
-            let width = window.innerWidth - 150;
-            let height = window.innerHeight - 150;
+        banana.style.left = x + "px";
+        banana.style.top = y + "px";
 
-            x += dx;
-            y += dy;
+        requestAnimationFrame(moveBanana);
+    }
 
-            if (x <= 0 || x >= width) dx *= -1;
-            if (y <= 0 || y >= height) dy *= -1;
+    moveBanana();
+</script>
 
-            banana.style.left = x + "px";
-            banana.style.top = y + "px";
-
-            requestAnimationFrame(moveBanana);
-        }
-
-        moveBanana();
-    </script>
-    
 </body>
 </html>
