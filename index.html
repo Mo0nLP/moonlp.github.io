@@ -10,9 +10,38 @@
 
 
 
+<style>
+.ticker {
+  width: 100%;
+  overflow: hidden;
+  background: black;
+  color: white;
+  padding: 10px 0;
+}
+
+.ticker-text {
+  display: inline-block;
+  white-space: nowrap;
+  padding-left: 100%;
+  animation: scroll 10s linear infinite;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+</style>
+</head>
+
+<body>
+
 <div class="ticker">
   <div class="ticker-text">
-     Pozor na duby, môžu ťa zadupať • Myši nemajú demokratické voľby •  MoonLP ovláda tu to stránku •  viac spí , hraj menej •
+     Pozor na duby, môžu ťa zadupať •  Myši nemajú demokratické voľby •  MoonLP ovláda internet •  Hraj viac, spi menej •
   </div>
 </div>
 
