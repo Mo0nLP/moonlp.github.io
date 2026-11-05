@@ -1,55 +1,24 @@
 
 <!DOCTYPE html>
-<html lang="sk">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>moonlp</title>
 
-    <!-- Ruffle Flash Emulator -->
     <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
 
     <style>
         body {
-            background: purple;
+            background-color: purple;
             color: white;
-            margin: 0;
             font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
         }
 
         h1 {
-            text-align: center;
+            margin-top: 20px;
         }
-
-        .ticker {
-            width: 100%;
-            overflow: hidden;
-            background: black;
-            padding: 10px 0;
-        }
-
-        .ticker-text {
-            display: inline-block;
-            white-space: nowrap;
-            padding-left: 100%;
-            animation: scroll 30s linear infinite;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        @keyframes scroll {
-            0% { transform: translateX(0%); }
-            100% { transform: translateX(-100%); }
-        }
-
-        ul {
-            text-align: left;
-            list-style: none;
-            padding: 0;
-        }
-
-        /* Game and image */
 
         .game-section {
             display: flex;
@@ -58,6 +27,12 @@
             gap: 20px;
             margin: 20px;
             flex-wrap: wrap;
+        }
+
+        .right-img {
+            width: auto;
+            height: auto;
+            max-width: none;
         }
 
         .game-box {
@@ -75,129 +50,79 @@
         #player ruffle-player {
             width: 320px;
             height: 480px;
+            display: block;
         }
 
-        .right-img {
-            width: 320px;
-            height: auto;
+        .banana {
+            position: fixed;
+            width: 80px;
+            bottom: 10px;
+            left: 0;
+            animation: bounce 2s infinite alternate ease-in-out;
         }
 
-        .game-title {
-            text-align: center;
+        @keyframes bounce {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(200px);
+            }
         }
     </style>
 </head>
 
 <body>
 
-<h1>Seruste</h1>
+    <h1>moonlp</h1>
 
-<div class="ticker">
-    <div class="ticker-text">
-        Pozor na duby, môžu ťa zadupať •
-        Myši nemajú demokratické voľby •
-        MoonLP je ľudská bytosť ako ty •
-        MoonLP ovláda túto stránku •
-        Viac spi, hraj menej •
-    </div>
-</div>
+    <marquee>
+        Welcome to my website!
+    </marquee>
 
-<h1>O mne info</h1>
+    <h2>About me</h2>
+    <p>Hello, welcome to my website!</p>
 
-<ul>
-    <li>Moje meno: Miško</li>
-    <li>Čo som: Som živá bytosť</li>
-    <li>Pohlavie: Muž</li>
-    <li>Kde ma vieš stretnúť: Discord, Steam</li>
-    <li>Nickname: MichalLP, MoonLP</li>
-</ul>
+    <h2>My PC</h2>
+    <p>Here are my PC specifications.</p>
 
-<h2>Moje PC specs</h2>
+    <div class="game-section">
 
-<ul>
-    <li>Procesor: AMD Ryzen 3 5300G</li>
-    <li>Grafika: NVIDIA GeForce GTX 1650</li>
-    <li>RAM: 16GB</li>
-    <li>Disk: SSD aj HDD (500GB)</li>
-    <li>Monitor: HP Compaq LA2205wg</li>
-</ul>
+        <img
+            src="dvajaspity roboši.png"
+            class="right-img"
+            alt="dvajaspity roboši"
+        >
 
-<!-- GAME AND IMAGE -->
-
-<div class="game-section">
-
-    <img class="right-img" src="dvajaspity roboši.png">
-
-    <div class="game-box">
-
-        <h2 class="game-title">Scuft flappy bird</h2>
-
-        <div id="player"></div>
+        <div class="game-box">
+            <h2>Scuft flappy bird</h2>
+            <div id="player"></div>
+        </div>
 
     </div>
 
-</div>
+    <img
+        src="banana.gif"
+        class="banana"
+        alt="Banana"
+    >
 
-<!-- BANANA -->
+    <script>
+        window.RufflePlayer = window.RufflePlayer || {};
 
-<img id="banana"
-    src="https://media.giphy.com/media/IB9foBA4PVkKA/giphy.gif"
-    style="position:fixed; width:150px;">
+        window.addEventListener("load", () => {
+            const ruffle = window.RufflePlayer.newest();
+            const player = ruffle.createPlayer();
 
-<script>
+            const container = document.getElementById("player");
 
-    // Ruffle Flash Emulator
+            container.appendChild(player);
+            player.style.width = "320px";
+            player.style.height = "480px";
 
-    window.RufflePlayer = window.RufflePlayer || {};
-
-    window.addEventListener("load", () => {
-
-        const ruffle = window.RufflePlayer.newest();
-
-        const player = ruffle.createPlayer();
-
-        player.style.width = "320px";
-        player.style.height = "480px";
-
-        const container = document.getElementById("player");
-
-        container.appendChild(player);
-
-        player.load("game.swf");
-
-    });
-
-
-    // Moving banana
-
-    let banana = document.getElementById("banana");
-
-    let x = 100;
-    let y = 100;
-
-    let dx = 2;
-    let dy = 2;
-
-    function moveBanana() {
-
-        let width = window.innerWidth - 150;
-        let height = window.innerHeight - 150;
-
-        x += dx;
-        y += dy;
-
-        if (x <= 0 || x >= width) dx *= -1;
-        if (y <= 0 || y >= height) dy *= -1;
-
-        banana.style.left = x + "px";
-        banana.style.top = y + "px";
-
-        requestAnimationFrame(moveBanana);
-    }
-
-    moveBanana();
-
-</script>
+            player.load("game.swf");
+        });
+    </script>
 
 </body>
 </html>
