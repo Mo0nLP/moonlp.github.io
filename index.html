@@ -49,7 +49,7 @@
             padding: 0;
         }
 
-        /* About me and Flash game layout */
+        /* Rozloženie obsahu */
 
         .content-row {
             display: flex;
@@ -57,7 +57,6 @@
             justify-content: center;
             gap: 30px;
             margin: 20px;
-            flex-wrap: wrap;
         }
 
         .about-section {
@@ -69,25 +68,35 @@
             text-align: left;
         }
 
+        /* Obrázok - pôvodná veľkosť */
+
         .right-img {
             display: block;
+            width: auto;
+            height: auto;
         }
+
+        /* Flash hra */
 
         .game-section {
             width: 320px;
+            min-width: 320px;
             flex-shrink: 0;
             text-align: center;
         }
 
         #player {
             width: 320px;
+            min-width: 320px;
             height: 480px;
+            min-height: 480px;
             background: black;
+            flex-shrink: 0;
         }
 
         #player ruffle-player {
-            width: 320px;
-            height: 480px;
+            width: 320px !important;
+            height: 480px !important;
             display: block;
         }
 
@@ -95,10 +104,14 @@
             text-align: center;
         }
 
-        /* PC specs */
-
         .pc-specs {
             margin: 20px;
+        }
+
+        @media (max-width: 750px) {
+            .content-row {
+                flex-wrap: wrap;
+            }
         }
     </style>
 </head>
@@ -117,7 +130,7 @@
     </div>
 </div>
 
-<!-- ABOUT ME + IMAGE + FLASH GAMES -->
+<!-- O MNE + OBRÁZOK + FLASH HRA -->
 
 <div class="content-row">
 
@@ -190,7 +203,6 @@
         player.style.width = "320px";
         player.style.height = "480px";
 
-        // Load Flash game
         player.load("game.swf");
 
     });
