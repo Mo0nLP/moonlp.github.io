@@ -48,17 +48,38 @@
             padding: 0;
         }
 
+        /* Game and image */
+
         .game-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px;
+            flex-wrap: wrap;
+        }
+
+        .game-box {
+            width: 480px;
+            max-width: 100%;
             text-align: center;
-            margin: 30px;
         }
 
         #player {
-            width: 800px;
-            max-width: 100%;
-            height: 450px;
-            margin: auto;
+            width: 100%;
+            aspect-ratio: 4 / 3;
             background: black;
+        }
+
+        #player ruffle-player {
+            width: 100%;
+            height: 100%;
+        }
+
+        .right-img {
+            width: 300px;
+            max-width: 100%;
+            height: auto;
         }
 
         .game-title {
@@ -101,15 +122,16 @@
     <li>Monitor: HP Compaq LA2205wg</li>
 </ul>
 
-<img class="right-img" src="dvajaspity roboši.png">
-
-<!-- FLASH GAMES -->
+<!-- GAME AND IMAGE -->
 
 <div class="game-section">
 
-    <h1 class="game-title">Scuft flappy bird</h1>
+    <img class="right-img" src="dvajaspity roboši.png">
 
-    <div id="player"></div>
+    <div class="game-box">
+        <h2 class="game-title">Scuft flappy bird</h2>
+        <div id="player"></div>
+    </div>
 
 </div>
 
@@ -135,7 +157,9 @@
 
         container.appendChild(player);
 
-        // Load Flash game
+        player.style.width = "100%";
+        player.style.height = "100%";
+
         player.load("game.swf");
 
     });
