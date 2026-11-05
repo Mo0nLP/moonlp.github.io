@@ -8,7 +8,7 @@
     <title>moonlp</title>
 
     <!-- Ruffle Flash Emulator -->
-    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+    <script src="ruffle.js"></script>
 
     <style>
         body {
@@ -49,49 +49,22 @@
             padding: 0;
         }
 
-        /* Main layout */
-
+        /* Flash game section */
         .game-section {
-            display: flex;
-            align-items: flex-start;
-            justify-content: center;
-            gap: 20px;
-            margin: 20px;
-            flex-wrap: wrap;
-        }
-
-        .about-section {
-            text-align: left;
-        }
-
-        .right-img {
-            display: block;
-        }
-
-        .game-box {
-            width: 320px;
-            flex-shrink: 0;
             text-align: center;
+            margin: 30px;
         }
 
         #player {
-            width: 320px;
-            height: 480px;
+            width: 800px;
+            max-width: 100%;
+            height: 450px;
+            margin: auto;
             background: black;
-        }
-
-        #player ruffle-player {
-            width: 320px;
-            height: 480px;
-            display: block;
         }
 
         .game-title {
             text-align: center;
-        }
-
-        .pc-specs {
-            margin: 20px;
         }
     </style>
 </head>
@@ -110,49 +83,37 @@
     </div>
 </div>
 
-<!-- ABOUT ME + IMAGE + GAME -->
+<h1>O mne info</h1>
+
+<ul>
+    <li>Moje meno: Miško</li>
+    <li>Čo som: Som živá bytosť</li>
+    <li>Pohlavie: Muž</li>
+    <li>Kde ma vieš stretnúť: Discord, Steam</li>
+    <li>Nickname: MichalLP, MoonLP</li>
+</ul>
+
+<h2>Moje PC specs</h2>
+
+<ul>
+    <li>Procesor: AMD Ryzen 3 5300G</li>
+    <li>Grafika: NVIDIA GeForce GTX 1650</li>
+    <li>RAM: 16GB</li>
+    <li>Disk: SSD aj HDD (500GB)</li>
+    <li>Monitor: HP Compaq LA2205wg</li>
+</ul>
+
+<img class="right-img" src="dvajaspity roboši.png">
+
+<!-- FLASH GAMES -->
 
 <div class="game-section">
 
-    <div class="about-section">
+    <h1 class="game-title">My Flash Games</h1>
 
-        <h1>O mne info</h1>
+    <p>Welcome to my Flash game collection!</p>
 
-        <ul>
-            <li>Moje meno: Miško</li>
-            <li>Čo som: Som živá bytosť</li>
-            <li>Pohlavie: Muž</li>
-            <li>Kde ma vieš stretnúť: Discord, Steam</li>
-            <li>Nickname: MichalLP, MoonLP</li>
-        </ul>
-
-        <img class="right-img" src="dvajaspity roboši.png">
-
-    </div>
-
-    <div class="game-box">
-
-        <h2 class="game-title">Scuft flappy bird</h2>
-
-        <div id="player"></div>
-
-    </div>
-
-</div>
-
-<!-- PC SPECS -->
-
-<div class="pc-specs">
-
-    <h2>Moje PC specs</h2>
-
-    <ul>
-        <li>Procesor: AMD Ryzen 3 5300G</li>
-        <li>Grafika: NVIDIA GeForce GTX 1650</li>
-        <li>RAM: 16GB</li>
-        <li>Disk: SSD aj HDD (500GB)</li>
-        <li>Monitor: HP Compaq LA2205wg</li>
-    </ul>
+    <div id="player"></div>
 
 </div>
 
@@ -174,13 +135,11 @@
 
         const player = ruffle.createPlayer();
 
-        player.style.width = "320px";
-        player.style.height = "480px";
-
         const container = document.getElementById("player");
 
         container.appendChild(player);
 
+        // Load Flash game
         player.load("game.swf");
 
     });
