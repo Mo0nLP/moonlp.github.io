@@ -12,32 +12,45 @@
             background-color: purple;
             color: white;
             font-family: Arial, sans-serif;
-            text-align: center;
             margin: 0;
+            text-align: center;
         }
 
         h1 {
             margin-top: 20px;
         }
 
-        .game-section {
+        .main-content {
             display: flex;
             align-items: flex-start;
             justify-content: center;
-            gap: 20px;
+            gap: 25px;
+            flex-wrap: nowrap;
             margin: 20px;
-            flex-wrap: wrap;
+            overflow-x: auto;
+        }
+
+        .about-section {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            text-align: left;
+            flex-shrink: 0;
+        }
+
+        .about-text {
+            width: 250px;
         }
 
         .right-img {
+            display: block;
             width: auto;
             height: auto;
-            max-width: none;
         }
 
         .game-box {
             width: 320px;
-            flex-shrink: 0;
+            flex: 0 0 320px;
             text-align: center;
         }
 
@@ -80,19 +93,20 @@
         Welcome to my website!
     </marquee>
 
-    <h2>About me</h2>
-    <p>Hello, welcome to my website!</p>
+    <div class="main-content">
 
-    <h2>My PC</h2>
-    <p>Here are my PC specifications.</p>
+        <div class="about-section">
 
-    <div class="game-section">
+            <div class="about-text">
+                <h2>Info about me</h2>
+                <p>
+                    Hello! Welcome to my website.
+                </p>
+            </div>
 
-        <img
-            src="dvajaspity roboši.png"
-            class="right-img"
-            alt="dvajaspity roboši"
-        >
+            <img class="right-img" src="dvajaspity roboši.png">
+
+        </div>
 
         <div class="game-box">
             <h2>Scuft flappy bird</h2>
@@ -101,11 +115,10 @@
 
     </div>
 
-    <img
-        src="banana.gif"
-        class="banana"
-        alt="Banana"
-    >
+    <h2>My PC</h2>
+    <p>Here are my PC specifications.</p>
+
+    <img src="banana.gif" class="banana" alt="Banana">
 
     <script>
         window.RufflePlayer = window.RufflePlayer || {};
@@ -117,6 +130,7 @@
             const container = document.getElementById("player");
 
             container.appendChild(player);
+
             player.style.width = "320px";
             player.style.height = "480px";
 
